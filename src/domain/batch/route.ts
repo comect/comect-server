@@ -4,7 +4,7 @@ import { Batch, BatchModel } from "./model";
 export default function routes(server: FastifyServer) {
   /**
    *
-   * getBatch
+   * Get a Batch
    *
    * Get a specific batch by id
    * @param id - batch id
@@ -39,10 +39,10 @@ export default function routes(server: FastifyServer) {
   );
   /**
    *
-   * addBatch
+   * Add a Batch
    *
-   * When a grower adds a batch of grain to the blockchain.
-   * This will create the grain asset on the blockchain.
+   * When a grower adds a batch of grain,
+   * this will create a Batch asset.
    * @param growerId - the Id of the grower who will be associated with this batch
    * @param location - the geolocation coordinates of where the batch was added
    * Optional params:
