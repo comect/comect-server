@@ -9,10 +9,16 @@ export class Service {
     @inject("sanitize") private readonly sanitize?: Sanitize
   ) {}
 
-  findByName(query: string, limit = 10) {
-    return this.model
-      .find({ name: this.sanitize!(query) })
-      .limit(limit)
-      .exec();
+  findById(id: string) {
+    return this.model.findById(id).exec();
+  }
+
+  findByName(query: string /* , limit = 10 */) {
+    return (
+      this.model
+        .find({ name: this.sanitize!(query) })
+        // .limit(limit)
+        .exec()
+    );
   }
 }
