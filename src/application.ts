@@ -10,6 +10,7 @@ import { decorateManagers } from "./ioc";
 
 import { healthCheck } from "./routes/health-check";
 import { staticRoutes } from "./routes/static";
+import { batch } from "./routes/batch";
 
 function connect(
   dbUrl: string,
@@ -78,7 +79,12 @@ export class Application {
     for (let i = 0; i < domainPaths.length; i++) {
       domainRoutes.push((await import(domainPaths[i])).default);
     }
-    const routes: Array<Route> = [healthCheck, staticRoutes, ...domainRoutes];
+    const routes: Array<Route> = [
+      healthCheck,
+      staticRoutes,
+      batch,
+      ...domainRoutes,
+    ];
     routes.forEach((route) => route(this.server));
   }
 

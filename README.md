@@ -50,7 +50,7 @@ You should
 - install dependencies with `npm i` command,
 - build with `npm run build` command,
 - delete node_modules and install only dependencies without dev dependencies with `sudo rm -rf node_modules && npm i --production` command (optional but if you do this, your docker image size will be much smaller),
-- build image with `docker build -t fastify-template .`
-- run your container with `docker run --publish 3002:3002 fastify-template`
+- build image with `docker build -t comect-server .`
+- run your container with `docker run --publish 3002:3002 comect-server`
 
 `GET http://localhost:3002/health` and see that server is running
