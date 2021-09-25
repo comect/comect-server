@@ -7,6 +7,7 @@ export type Brew = {
   producerId: string;
   batch: string;
   location: [number];
+  createdAt: Date;
 };
 
 const brewSchema: Schema = new Schema({
@@ -14,6 +15,7 @@ const brewSchema: Schema = new Schema({
   producerId: String,
   batch: Schema.Types.ObjectId,
   location: [Number],
+  createdAt: { type: Schema.Types.Date, default: Date.now() },
 }).index({
   location: "2dsphere",
 });
