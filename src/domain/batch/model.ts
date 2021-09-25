@@ -8,7 +8,7 @@ export type Batch = {
 
 const batchSchema: Schema = new Schema({
   name: String,
-  growerId: Schema.Types.ObjectId,
+  growerId: String,
   location: [Number],
 }).index({
   location: "2dsphere",
