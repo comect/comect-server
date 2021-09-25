@@ -18,10 +18,12 @@
   "scripts": {
     "build:dev": "tsc --watch",
     "build": "tsc",
+    "dev": "concurrently \"npm run build:dev\" \"sleep 10\" \"npm run start:dev\"",
     "start:dev": "NODE_ENV=development nodemon ./dist/index",
     "start": "NODE_ENV=production node ./dist/index",
-    "test": "npx jest",
-    "cov": "npx jest --collect-coverage",
+    "test": "jest --detectOpenHandles --runInBand --testTimeout 30000",
+    "tdd": "concurrently \"npm run build:dev\" \"sleep 10\" \"jest --detectOpenHandles --runInBand --testTimeout 30000 --watchAll\"",
+    "cov": "jest --collect-coverage",
     "lint": "eslint --fix ./src/*.ts ./src/**/*.ts"
   },
   "dependencies": {
@@ -43,6 +45,7 @@
     "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^3.10",
     "@typescript-eslint/parser": "^3.10",
+    "concurrently": "^6.2.1",
     "eslint": "^7.7",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-standard": "^14.1.1",
