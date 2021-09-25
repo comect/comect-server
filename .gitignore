@@ -6,3 +6,5 @@ coverage
 
 !development.env
 !test.env
+
+.DS_Store
