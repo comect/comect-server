@@ -37,23 +37,23 @@ export default function routes(server: FastifyServer) {
             {
               name: "田中さん",
               type: "Grower",
-              location: { lat: 139.37576471789208, long: 35.32015919907444 },
+              location: { long: 139.37576471789208, lat: 35.32015919907444 },
             },
             {
               name: "万語酒造",
               type: "Producer",
-              location: { lat: 139.3767972323552, long: 35.32044001988572 },
+              location: { long: 139.3767972323552, lat: 35.32044001988572 },
             },
             {
               name: "信洲お酒村",
               type: "Venue",
-              location: { lat: 139.757413, long: 35.6664332 },
+              location: { long: 139.757413, lat: 35.6664332 },
             },
           ],
           routes: [
-            { lat: 139.37576471789208, long: 35.32015919907444 },
-            { lat: 139.3767972323552, long: 35.32044001988572 },
-            { lat: 139.757413, long: 35.6664332 },
+            { long: 139.37576471789208, lat: 35.32015919907444 },
+            { long: 139.3767972323552, lat: 35.32044001988572 },
+            { long: 139.757413, lat: 35.6664332 },
           ],
         };
         if (itinerary) {
