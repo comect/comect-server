@@ -23,7 +23,7 @@ Batch -> Brew -> Serving
 - grower: ref
 - location: geo-coords
 - meta:
-    - timestamp: timestamp
+    - createdAt: timestamp
     - state: (ready-for-distribution/ready-for-sale/sold)
     - size: (small/medium/large)
     - variety: string/enum
@@ -33,8 +33,8 @@ Batch -> Brew -> Serving
 - batch(es): ref array
 - producer/maker: ref
 - meta:
-    - timestamp: timestamp
-    - location (of making): geo-coords
+    - createdAt: timestamp
+    - location (of production): geo-coords
     - tasting_notes: text
     - style: string
 
@@ -42,9 +42,14 @@ Batch -> Brew -> Serving
 - brew: ref
 - location: geo-coords
 - meta:
-    - timestamp: timestamp
+    - createdAt: timestamp
     - consumer: ref
     - type (small/medium/large): string/enum
+    - venue: ref
+
+## Venue
+- name: string
+- location: geo-coords
 
 ## Location
 - long: number;
