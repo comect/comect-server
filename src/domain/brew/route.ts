@@ -4,7 +4,7 @@ import { Brew, BrewModel } from "./model";
 export default function routes(server: FastifyServer) {
   /**
    *
-   * getBrew
+   * Get a Brew
    *
    * Get a specific brew by id
    * @param id - brew id
@@ -39,17 +39,14 @@ export default function routes(server: FastifyServer) {
   );
   /**
    *
-   * addBrew
+   * Add a Brew
    *
-   * When a grower adds a brew of grain to the blockchain.
-   * This will create the grain asset on the blockchain.
-   * @param growerId - the Id of the grower who will be associated with this brew
+   * When a producer creates a brew out of a batch,
+   * this will create the Brew asset.
+   * @param name - the name of the brew
+   * @param producerId - the id of the producer that made the brew
+   * @param batch - the id of the batch that was used to make the brew
    * @param location - the geolocation coordinates of where the brew was added
-   * Optional params:
-   * @param size - size of grain (small, medium, large)
-   * @param variety - variety of the grains
-   * @param brewState - the state of the grain
-   *  (READY_FOR_DISTRIBUTION, READY_FOR_BREWING, READY_FOR_SALE, SOLD?)
    **/
   server.post("/brew", {}, async (request, reply) => {
     let brew = request.body as Brew;

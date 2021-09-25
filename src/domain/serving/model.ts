@@ -6,12 +6,14 @@ export type Serving = {
   brew: string;
   consumerId: string;
   location: [number];
+  createdAt: Date;
 };
 
 const servingSchema: Schema = new Schema({
   brew: Schema.Types.ObjectId,
   consumerId: String,
   location: [Number],
+  createdAt: { type: Schema.Types.Date, default: Date.now() },
 }).index({
   location: "2dsphere",
 });

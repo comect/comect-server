@@ -3,10 +3,8 @@ import { Itinerary } from "./model";
 
 export default function routes(server: FastifyServer) {
   /**
-   *
-   * get itinerary by serving id
-   *
    * Get a full produce itinerary by the serving id
+   *
    * @param id - serving id
    **/
   server.get<{ Querystring: { id: string } }>(
