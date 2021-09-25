@@ -63,9 +63,9 @@ describe("Batch Endpoints Tests", () => {
     sandbox.verifyAndRestore();
   });
   //
-  // it("should return 400 without query param", async () => {
-  //   await request(server.server).get(`/users`).expect(400);
-  // });
+  it("should return 400 without query param", async () => {
+    await request(server.server).get(`/users`).expect(400);
+  });
   //
   // it("should return 200", async () => {
   //   const res = await request(server.server)
