@@ -1,11 +1,11 @@
 import { FastifyServer } from "../../interface/server";
 
-interface Query {
+interface QueryByName {
   name: string;
 }
 
 export default function routes(server: FastifyServer) {
-  server.get<{ Querystring: Query }>(
+  server.get<{ Querystring: QueryByName }>(
     "/users",
     {
       schema: {
@@ -27,8 +27,7 @@ export default function routes(server: FastifyServer) {
           return reply.code(404).send();
         }
       } catch (e) {
-        server.log.error("GET_USER_ERROR: ");
-        server.log.error(e);
+        server.log.error("Error while getting user", e);
         return reply.code(500).send({});
       }
     }

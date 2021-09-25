@@ -32,14 +32,14 @@ export default function routes(server: FastifyServer) {
     async (request, reply) => {
       try {
         // const batch = await server.batchManager.findById(request.query.id);
-        // if (Array.isArray(users) && users.length) {
-        if (true) {
-          return reply.code(200).send({ id: "1" });
+        // if (batch) {
+        if (request.query.id) {
+          return reply.code(200).send({ id: request.query.id });
         } else {
           return reply.code(404).send();
         }
       } catch (e) {
-        server.log.error(e);
+        server.log.error("Error while getting batch", e);
         return reply.code(500).send({});
       }
     }

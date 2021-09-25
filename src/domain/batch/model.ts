@@ -3,13 +3,15 @@ import { Schema, Document, model } from "mongoose";
 export type Batch = {
   name: string;
   growerId: string;
-  location: unknown;
+  location: [number];
 };
 
 const batchSchema: Schema = new Schema({
   name: String,
   growerId: Schema.Types.ObjectId,
-  location: Schema.Types.Mixed,
+  location: [Number],
+}).index({
+  location: "2dsphere",
 });
 
 export const BatchModel = model<Batch & Document>("Batch", batchSchema);
