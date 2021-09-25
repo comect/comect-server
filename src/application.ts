@@ -7,7 +7,7 @@ import { getOptions } from "./config";
 import { FastifyServer } from "./interface/server";
 import { Route } from "./interface/route";
 import { decorateManagers } from "./ioc";
-
+import FastifyCors from "fastify-cors";
 import { healthCheck } from "./routes/health-check";
 import { staticRoutes } from "./routes/static";
 
@@ -59,6 +59,9 @@ export class Application {
   }
 
   private async registerPlugins() {
+    this.server.register(FastifyCors, {
+      // put your options here
+    });
     this.server.register(fastifyEnv, getOptions()).ready((err) => {
       if (err) {
         console.error(`Error while registering fastifyEnv: ${err}`);
