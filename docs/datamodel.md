@@ -31,9 +31,9 @@ Batch -> Brew -> Serving
 ## Brew
 - name: string
 - batch(es): ref array
+- producer/maker: ref
 - meta:
     - timestamp: timestamp
-    - producer/maker: ref
     - location (of making): geo-coords
     - tasting_notes: text
     - style: string
