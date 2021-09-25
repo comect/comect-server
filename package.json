@@ -13,7 +13,7 @@
     "jest",
     "eslint"
   ],
-  "repository": "https://github.com/mehmetsefabalik/comect-server",
+  "repository": "https://github.com/comect/comect-server",
   "license": "UNLICENSED",
   "scripts": {
     "build:dev": "tsc --watch",
