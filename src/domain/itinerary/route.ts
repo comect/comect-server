@@ -1,5 +1,5 @@
 import { FastifyServer } from "../../interface/server";
-import { getItineraryResponse } from "./model";
+import { Itinerary } from "./model";
 
 export default function routes(server: FastifyServer) {
   /**
@@ -32,7 +32,7 @@ export default function routes(server: FastifyServer) {
     },
     async (request, reply) => {
       try {
-        const itinerary: getItineraryResponse = {
+        const itinerary: Itinerary = {
           markers: [
             {
               name: "田中さん",

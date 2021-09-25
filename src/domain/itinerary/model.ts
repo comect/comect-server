@@ -1,4 +1,4 @@
-export type getItineraryResponse = {
+export type Itinerary = {
   markers: Marker[];
   routes: Location[];
 };
