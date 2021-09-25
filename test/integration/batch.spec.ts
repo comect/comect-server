@@ -62,28 +62,28 @@ describe("Batch Endpoints Tests", () => {
   afterEach(() => {
     sandbox.verifyAndRestore();
   });
-
-  it("should return 400 without query param", async () => {
-    await request(server.server).get(`/users`).expect(400);
-  });
-
-  it("should return 200", async () => {
-    const res = await request(server.server)
-      .get(`/users?name=${batchName}`)
-      .expect(200);
-    expect(res.body.success).toBe(true);
-  });
-
-  it("should return 404", async () => {
-    await request(server.server).get(`/users?name=nosuchthing`).expect(404);
-  });
-
-  it("should return 500", async () => {
-    const temp = server.userManager.findByName;
-    server.userManager.findByName = sandbox.stub().throws();
-
-    await request(server.server).get(`/users?name=${batchName}`).expect(500);
-
-    server.userManager.findByName = temp;
-  });
+  //
+  // it("should return 400 without query param", async () => {
+  //   await request(server.server).get(`/users`).expect(400);
+  // });
+  //
+  // it("should return 200", async () => {
+  //   const res = await request(server.server)
+  //     .get(`/users?name=${batchName}`)
+  //     .expect(200);
+  //   expect(res.body.success).toBe(true);
+  // });
+  //
+  // it("should return 404", async () => {
+  //   await request(server.server).get(`/users?name=nosuchthing`).expect(404);
+  // });
+  //
+  // it("should return 500", async () => {
+  //   const temp = server.userManager.findByName;
+  //   server.userManager.findByName = sandbox.stub().throws();
+  //
+  //   await request(server.server).get(`/users?name=${batchName}`).expect(500);
+  //
+  //   server.userManager.findByName = temp;
+  // });
 });
